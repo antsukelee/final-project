@@ -55,14 +55,11 @@ const uploader = multer({
 
 // UPLOADING A PICTURE //
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
-    console.log("/upload RESPONSE route in index.js", res.body);
-    console.log("/upload REQUEST route in index.js", req.body);
+    // console.log("RES.BODY: ", res.body);
     const { filename } = req.file;
     const item_url = `${s3Url}${filename}`;
-    console.log("item_url", item_url);
 
     if (req.file) {
-        console.log("REQ.FILE: ", req.file);
         uploadItem(item_url)
             .then((response) => {
                 console.log(
@@ -75,6 +72,14 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
                 console.log("error in uploadItem index.js", err);
             });
     }
+});
+
+// TO RENDER WARDROBE ITEMS //
+app.get("/wardrobe", (req, res) => {
+    getWardrobeItems().then((response) => {
+        console.log("Response in getWardrobeItems index.js: ", response);
+        res.json(response.rows);
+    });
 });
 
 // TO RENDER APP

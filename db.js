@@ -16,6 +16,6 @@ module.exports.uploadItem = (item_url) => {
 };
 
 // TO RENDER PICTURE // SELECT
-// module.exports.getWardrobeItems = () => {
-//     return db.query(`SELECT item_url, category FROM items;`);
-// };
+module.exports.getWardrobeItems = () => {
+    return db.query(`SELECT item_url, id FROM items;`);
+};

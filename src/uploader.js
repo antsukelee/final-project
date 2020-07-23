@@ -5,24 +5,22 @@
 import React, { useState } from "react";
 import axios from "./axios";
 
-export default function Uploader() {
-    const [file, setFile] = useState();
-
+export default function Uploader(props) {
     const handleUpload = (e) => {
         e.preventDefault();
         console.log("handleUpload runs!");
 
         var formData = new FormData();
-        formData.append("file", file);
+        formData.append("file", props.file);
 
         axios
             .post("/upload", formData)
             .then((response) => {
-                console.log(
-                    "respnse from axios post /upload IMG UPLOAD: ",
-                    response
-                );
-                setFile(response.data.item_url);
+                // console.log(
+                //     "respnse from axios post /upload IMG UPLOAD: ",
+                //     response
+                // );
+                props.setFile(response.data.item_url);
             })
             .catch(function (err) {
                 console.log("error in POST /upload axios: ", err);
@@ -30,7 +28,7 @@ export default function Uploader() {
     };
 
     const handleChange = (e) => {
-        setFile(e.target.files[0]);
+        props.setFile(e.target.files[0]);
     };
 
     return (
