@@ -1,0 +1,28 @@
+* {
+    background-color: rgba(126, 252, 0, 0.096);
+}
+
+/* UPLOADER COMPONENT*/
+.uploader-container {
+    border: 1px solid black;
+    padding: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-evenly;
+}
+
+/* WARDROBE COMPONENT */
+.wardrobe-container {
+    border: 1px solid red;
+    padding: 30px;
+    background-color: white;
+}
+
+.wardrobe-item {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    object-fit: cover;
+}

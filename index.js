@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 const compression = require("compression");
+const { uploadItem, getWardrobeItems } = require("./db.js");
+
+const s3 = require("./s3.js");
+const { s3Url } = require("./config.json");
 
 app.use(compression());
 
@@ -14,6 +18,15 @@ if (process.env.NODE_ENV != "production") {
 } else {
     app.use("/bundle.js", (req, res) => res.sendFile(`${__dirname}/bundle.js`));
 }
+
+app.use(express.static("public"));
+app.use(express.json());
+
+app.use(
+    express.urlencoded({
+        extended: false,
+    })
+);
 
 /////////////////////////////////////////////////////////
 /////////////// FILE UPLOAD BOILERPLATE /////////////////
@@ -41,18 +54,33 @@ const uploader = multer({
 ///////////// UP HERE: FILE UPLOAD BOILERPLATE //////////
 
 // UPLOADING A PICTURE //
-
-app.get("/upload", uploader.single("file"), s3.upload, (req, res) => {
+app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
+    console.log("/upload RESPONSE route in index.js", res.body);
+    console.log("/upload REQUEST route in index.js", req.body);
     const { filename } = req.file;
-    const { garmentImg } = `${s3Url}${filename}`;
+    const item_url = `${s3Url}${filename}`;
+    console.log("item_url", item_url);
 
     if (req.file) {
-        uploadGarmentImg(garmentImg).then((result) => {
-            res.json(result.rows[0]).catch((err) => {
-                console.log("error in uploadGarmentImg index.js", err);
+        console.log("REQ.FILE: ", req.file);
+        uploadItem(item_url)
+            .then((response) => {
+                console.log(
+                    "uploadItem RESULT log in /upload index.js",
+                    response
+                );
+                res.json(response.rows[0]);
+            })
+            .catch((err) => {
+                console.log("error in uploadItem index.js", err);
             });
-        });
     }
+});
+
+// TO RENDER APP
+app.get("/app", (req, res) => {
+    //res.redirect("/app");
+    res.sendFile(__dirname + "/index.html");
 });
 
 app.get("*", function (req, res) {

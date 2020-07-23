@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app";
 
-ReactDOM.render(<HelloWorld />, document.querySelector("main"));
+let elem;
 
-function HelloWorld() {
-    return (
-        <div>Hello, World!</div>
-        //<App />
-    );
+if (location.pathname === "/app") {
+    elem = <App />;
+} else {
+    elem = <div>Hello, World!</div>;
 }
+
+ReactDOM.render(elem, document.querySelector("main"));
