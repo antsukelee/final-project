@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import axios from "./axios";
 
 export default function Uploader(props) {
+    const [categories, setCategories] = useState("");
     const handleUpload = (e) => {
         e.preventDefault();
         console.log("handleUpload runs!");
@@ -21,6 +22,7 @@ export default function Uploader(props) {
                 //     response
                 // );
                 props.setFile(response.data.item_url);
+                setCategories(response.data.category);
             })
             .catch(function (err) {
                 console.log("error in POST /upload axios: ", err);
@@ -28,7 +30,12 @@ export default function Uploader(props) {
     };
 
     const handleChange = (e) => {
-        props.setFile(e.target.files[0]);
+        props.setFile(e.target.value);
+    };
+
+    const handleCategory = (e) => {
+        console.log("e.target in uploader.js:", e.target);
+        setCategories(e.target.category);
     };
 
     return (
@@ -41,6 +48,17 @@ export default function Uploader(props) {
                 id="file"
                 name="file"
             />
+            <select
+                onChange={(e) => handleCategory(e)}
+                id="category"
+                name="category"
+            >
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+                <option value="shoes">Shoes</option>
+                <option value="accessories">Accessory</option>
+                <option value="hats">Hat</option>
+            </select>
             <button onClick={(e) => handleUpload(e)}>UPLOAD</button>
             {/* <p onClick={this.props.closeModal} className="modal-x">
                 X

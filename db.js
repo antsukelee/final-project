@@ -6,12 +6,12 @@ const db = spicedPg(
 );
 
 // UPLOAD PICTURE // INSERT
-module.exports.uploadItem = (item_url) => {
+module.exports.uploadItem = (item_url, category) => {
     return db.query(
-        `INSERT INTO items (item_url)
-        VALUES ($1) 
+        `INSERT INTO items (item_url, category)
+        VALUES ($1, $2) 
         RETURNING *`,
-        [item_url]
+        [item_url, category]
     );
 };
 

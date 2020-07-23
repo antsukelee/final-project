@@ -32,7 +32,7 @@ export default function Wardrobe({ imageFile }) {
                         );
                     })}
             </ul>
-            <p>Bottoms</p>
+            {/* <p>Bottoms</p>
             <ul className="wardrobe-items">
                 {pics.length > 0 &&
                     pics.map((pic) => {
@@ -63,7 +63,7 @@ export default function Wardrobe({ imageFile }) {
                             </div>
                         );
                     })}
-            </ul>
+            </ul> */}
         </div>
     );
 }
