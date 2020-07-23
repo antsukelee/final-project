@@ -7,6 +7,7 @@ import axios from "./axios";
 
 export default function Uploader(props) {
     const [categories, setCategories] = useState("");
+
     const handleUpload = (e) => {
         e.preventDefault();
         console.log("handleUpload runs!");
@@ -15,14 +16,14 @@ export default function Uploader(props) {
         formData.append("file", props.file);
 
         axios
-            .post("/upload", formData)
+            .post("/upload", formData, categories)
             .then((response) => {
-                // console.log(
-                //     "respnse from axios post /upload IMG UPLOAD: ",
-                //     response
-                // );
+                console.log(
+                    "respnse from axios post /upload IMG UPLOAD: ",
+                    response
+                );
                 props.setFile(response.data.item_url);
-                setCategories(response.data.category);
+                //setCategories(response.data.category);
             })
             .catch(function (err) {
                 console.log("error in POST /upload axios: ", err);
@@ -49,9 +50,10 @@ export default function Uploader(props) {
                 name="file"
             />
             <select
-                onChange={(e) => handleCategory(e)}
+                onChange={(e) => handleCategory(setCategories(categories))}
                 id="category"
                 name="category"
+                value="category"
             >
                 <option value="top">Top</option>
                 <option value="bottom">Bottom</option>
