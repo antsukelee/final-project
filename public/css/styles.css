@@ -11,18 +11,30 @@
     flex-direction: column;
     height: 100px;
     justify-content: space-evenly;
+    width: 30vw;
 }
 
 /* WARDROBE COMPONENT */
 .wardrobe-container {
     border: 1px solid red;
-    padding: 30px;
+    /* padding: 30px; */
     background-color: white;
+    padding: 30px;
+    width: 30vw;
 }
 
 .wardrobe-item {
-    height: 100px;
-    width: 100px;
-    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    /* border: 1px solid black; */
     object-fit: cover;
+    margin-right: 5px;
+    /* padding: 3px; */
+}
+
+.wardrobe-items {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
 }

@@ -33,7 +33,7 @@ export default function Uploader(props) {
 
     return (
         <div className="uploader-container">
-            <div>Uploader Modal</div>
+            <div>Upload photos</div>
             <input
                 onChange={(e) => handleChange(e)}
                 type="file"

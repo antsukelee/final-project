@@ -9,7 +9,7 @@ export default function App() {
     return (
         <BrowserRouter>
             <div>
-                <p>This is the App component</p>
+                <h3>Style gen</h3>
 
                 <Uploader setFile={setFile} file={file} />
 

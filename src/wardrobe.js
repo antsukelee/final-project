@@ -15,20 +15,52 @@ export default function Wardrobe({ imageFile }) {
 
     return (
         <div className="wardrobe-container">
-            <p>
-                This is the Wardrobe component where I want to display the
-                uploaded images
-            </p>
-            <ul>
+            <p>YOUR WARDROBE</p>
+            <p>Tops</p>
+            <ul className="wardrobe-items">
                 {pics.length > 0 &&
                     pics.map((pic) => {
                         return (
-                            <li key={pic.id}>
-                                <img
-                                    className="wardrobe-item"
-                                    src={pic.item_url}
-                                />
-                            </li>
+                            <div>
+                                <li key={pic.id}>
+                                    <img
+                                        className="wardrobe-item"
+                                        src={pic.item_url}
+                                    />
+                                </li>
+                            </div>
+                        );
+                    })}
+            </ul>
+            <p>Bottoms</p>
+            <ul className="wardrobe-items">
+                {pics.length > 0 &&
+                    pics.map((pic) => {
+                        return (
+                            <div>
+                                <li key={pic.id}>
+                                    <img
+                                        className="wardrobe-item"
+                                        src={pic.item_url}
+                                    />
+                                </li>
+                            </div>
+                        );
+                    })}
+            </ul>
+            <p>Shoes</p>
+            <ul className="wardrobe-items">
+                {pics.length > 0 &&
+                    pics.map((pic) => {
+                        return (
+                            <div>
+                                <li key={pic.id}>
+                                    <img
+                                        className="wardrobe-item"
+                                        src={pic.item_url}
+                                    />
+                                </li>
+                            </div>
                         );
                     })}
             </ul>
