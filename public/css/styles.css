@@ -2,6 +2,10 @@
     background-color: rgba(126, 252, 0, 0.096);
 }
 
+.app-layout {
+    display: flex;
+}
+
 /* UPLOADER COMPONENT*/
 .uploader-container {
     border: 1px solid black;
@@ -37,4 +41,21 @@
     display: flex;
     flex-wrap: wrap;
     padding-left: 20px;
+}
+
+/* GENERATOR COMPONENT */
+.generator-container {
+    border: 1px solid blueviolet;
+}
+
+.outfit-container {
+    border: 1px solid black;
+}
+
+.outfit-container img {
+    width: 200px;
+    height: auto;
+    /* border: 1px solid black; */
+    padding: 10px;
+    background-color: white;
 }

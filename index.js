@@ -1,7 +1,15 @@
 const express = require("express");
 const app = express();
 const compression = require("compression");
-const { uploadItem, getWardrobeItems } = require("./db.js");
+const {
+    uploadItem,
+    getWardrobeItems,
+    getTops,
+    getBottoms,
+    getShoes,
+    getAccessories,
+    getHats,
+} = require("./db.js");
 
 const s3 = require("./s3.js");
 const { s3Url } = require("./config.json");
@@ -61,6 +69,7 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     console.log("req.body: ", req.body);
 
     if (req.file) {
+        console.log("req.file", req.file);
         uploadItem(item_url, req.body.category)
             .then((response) => {
                 console.log(
@@ -78,7 +87,37 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
 // TO RENDER WARDROBE ITEMS //
 app.get("/wardrobe", (req, res) => {
     getWardrobeItems().then((response) => {
-        console.log("Response in getWardrobeItems index.js: ", response);
+        //console.log("Response in getWardrobeItems index.js: ", response);
+        res.json(response.rows);
+    });
+});
+app.get("/wardrobetops", (req, res) => {
+    getTops().then((response) => {
+        //console.log("Response in getWardrobeItems index.js: ", response);
+        res.json(response.rows);
+    });
+});
+app.get("/wardrobebottoms", (req, res) => {
+    getBottoms().then((response) => {
+        //console.log("Response in getWardrobeItems index.js: ", response);
+        res.json(response.rows);
+    });
+});
+app.get("/wardrobeshoes", (req, res) => {
+    getShoes().then((response) => {
+        //console.log("Response in getWardrobeItems index.js: ", response);
+        res.json(response.rows);
+    });
+});
+app.get("/wardrobeaccessories", (req, res) => {
+    getAccessories().then((response) => {
+        //console.log("Response in getWardrobeItems index.js: ", response);
+        res.json(response.rows);
+    });
+});
+app.get("/wardrobehats", (req, res) => {
+    getHats().then((response) => {
+        //console.log("Response in getWardrobeItems index.js: ", response);
         res.json(response.rows);
     });
 });

@@ -6,37 +6,49 @@ import React, { useState } from "react";
 import axios from "./axios";
 
 export default function Uploader(props) {
-    const [categories, setCategories] = useState("");
+    const [categories, setCategories] = useState([]);
 
     const handleUpload = (e) => {
         e.preventDefault();
         console.log("handleUpload runs!");
+        console.log("categories...:", categories);
+        //console.log("PROPS:", props);
 
         var formData = new FormData();
         formData.append("file", props.file);
+        formData.append("category", "categories");
+
+        //const category = categories;
 
         axios
-            .post("/upload", formData, categories)
+            .post("/upload", formData)
             .then((response) => {
                 console.log(
                     "respnse from axios post /upload IMG UPLOAD: ",
                     response
                 );
                 props.setFile(response.data.item_url);
-                //setCategories(response.data.category);
+                setCategories(response.data.category);
             })
             .catch(function (err) {
-                console.log("error in POST /upload axios: ", err);
+                console.log("error in POST /upload axios uploader.js: ", err);
             });
     };
 
     const handleChange = (e) => {
+        console.log(
+            "e.target.value in handleChange setFile is: ",
+            e.target.value
+        );
         props.setFile(e.target.value);
     };
 
     const handleCategory = (e) => {
-        console.log("e.target in uploader.js:", e.target);
-        setCategories(e.target.category);
+        console.log(
+            "e.target.value in handleCategory  setCategories in uploader.js:",
+            e.target.value
+        );
+        setCategories(e.target.value);
     };
 
     return (
@@ -49,8 +61,13 @@ export default function Uploader(props) {
                 id="file"
                 name="file"
             />
+            {/* <input
+                onChange={(e) => handleCategory(e)}
+                name="category"
+                id="category"
+            ></input> */}
             <select
-                onChange={(e) => handleCategory(setCategories(categories))}
+                onChange={(e) => handleCategory(e)}
                 id="category"
                 name="category"
                 value="category"
