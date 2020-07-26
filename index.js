@@ -64,9 +64,9 @@ const uploader = multer({
 // UPLOADING A PICTURE //
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     console.log("RES.BODY: ", res.body);
+    console.log("req.body: ", req.body);
     const { filename } = req.file;
     const item_url = `${s3Url}${filename}`;
-    console.log("req.body: ", req.body);
 
     if (req.file) {
         console.log("req.file", req.file);

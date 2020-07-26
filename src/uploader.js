@@ -6,17 +6,15 @@ import React, { useState } from "react";
 import axios from "./axios";
 
 export default function Uploader(props) {
-    const [categories, setCategories] = useState([]);
-
     const handleUpload = (e) => {
         e.preventDefault();
         console.log("handleUpload runs!");
-        console.log("categories...:", categories);
+        console.log("props.categories...:", props.categories);
         //console.log("PROPS:", props);
 
         var formData = new FormData();
         formData.append("file", props.file);
-        formData.append("category", "categories");
+        formData.append("category", props.categories);
 
         //const category = categories;
 
@@ -28,7 +26,7 @@ export default function Uploader(props) {
                     response
                 );
                 props.setFile(response.data.item_url);
-                setCategories(response.data.category);
+                props.setCategories(response.data.category);
             })
             .catch(function (err) {
                 console.log("error in POST /upload axios uploader.js: ", err);
@@ -48,12 +46,12 @@ export default function Uploader(props) {
             "e.target.value in handleCategory  setCategories in uploader.js:",
             e.target.value
         );
-        setCategories(e.target.value);
+        props.setCategories(e.target.value);
     };
 
     return (
         <div className="uploader-container">
-            <div>Upload photos</div>
+            <div className="nav-text">Upload photos</div>
             <input
                 onChange={(e) => handleChange(e)}
                 type="file"

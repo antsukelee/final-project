@@ -8,49 +8,49 @@ export default function Wardrobe({ imageFile }) {
     const [shoes, setShoes] = useState([]);
     const [accessories, setAccessories] = useState([]);
     const [hats, setHats] = useState([]);
-    console.log("pics in setState in Wardrobe", pics);
+    // console.log("pics in setState in Wardrobe", pics);
     //
 
-    useEffect(() => {
-        axios.get("/wardrobe").then((result) => {
-            setPics(result.data);
-            console.log("axios.get result.data: ", result.data);
-        });
-    }, [imageFile]);
+    // useEffect(() => {
+    //     axios.get("/wardrobe").then((result) => {
+    //         setPics(result.data);
+    //         console.log("axios.get result.data: ", result.data);
+    //     });
+    // }, [imageFile]);
     useEffect(() => {
         axios.get("/wardrobetops").then((result) => {
             setTops(result.data);
-            console.log("axios.get result.data: ", result.data);
+            // console.log("axios.get result.data: ", result.data);
         });
     }, [imageFile]);
     useEffect(() => {
         axios.get("/wardrobebottoms").then((result) => {
             setBottoms(result.data);
-            console.log("axios.get result.data: ", result.data);
+            // console.log("axios.get result.data: ", result.data);
         });
     }, [imageFile]);
     useEffect(() => {
         axios.get("/wardrobeshoes").then((result) => {
             setShoes(result.data);
-            console.log("axios.get result.data: ", result.data);
+            // console.log("axios.get result.data: ", result.data);
         });
     }, [imageFile]);
     useEffect(() => {
         axios.get("/wardrobeaccessories").then((result) => {
             setAccessories(result.data);
-            console.log("axios.get result.data: ", result.data);
+            // console.log("axios.get result.data: ", result.data);
         });
     }, [imageFile]);
     useEffect(() => {
         axios.get("/wardrobehats").then((result) => {
             setHats(result.data);
-            console.log("axios.get result.data: ", result.data);
+            // console.log("axios.get result.data: ", result.data);
         });
     }, [imageFile]);
 
     return (
         <div className="wardrobe-container">
-            <p>YOUR WARDROBE</p>
+            <p className="nav-text">YOUR WARDROBE</p>
             {/* <p>Tops</p>
             <ul className="wardrobe-items">
                 {pics.length > 0 &&
@@ -67,7 +67,7 @@ export default function Wardrobe({ imageFile }) {
                         );
                     })}
             </ul> */}
-            <p>TOPS</p>
+            <p className="nav-text">TOPS</p>
             <ul className="wardrobe-items">
                 {tops.length > 0 &&
                     tops.map((top) => {
@@ -83,7 +83,7 @@ export default function Wardrobe({ imageFile }) {
                         );
                     })}
             </ul>
-            <p>BOTTOMS</p>
+            <p className="nav-text">BOTTOMS</p>
             <ul className="wardrobe-items">
                 {bottoms.length > 0 &&
                     bottoms.map((bottom) => {
@@ -99,7 +99,7 @@ export default function Wardrobe({ imageFile }) {
                         );
                     })}
             </ul>
-            <p>SHOES</p>
+            <p className="nav-text">SHOES</p>
             <ul className="wardrobe-items">
                 {shoes.length > 0 &&
                     shoes.map((shoe) => {
@@ -115,7 +115,7 @@ export default function Wardrobe({ imageFile }) {
                         );
                     })}
             </ul>
-            <p>ACCESSORIES</p>
+            <p className="nav-text">ACCESSORIES</p>
             <ul className="wardrobe-items">
                 {accessories.length > 0 &&
                     accessories.map((accessory) => {
@@ -131,7 +131,7 @@ export default function Wardrobe({ imageFile }) {
                         );
                     })}
             </ul>
-            <p>HATS</p>
+            <p className="nav-text">HATS</p>
             <ul className="wardrobe-items">
                 {hats.length > 0 &&
                     hats.map((hat) => {
