@@ -44,6 +44,7 @@ const path = require("path"); // part of node. a core module
 
 const diskStorage = multer.diskStorage({
     destination: function (req, file, callback) {
+        console.log("file in multer", file);
         callback(null, __dirname + "/uploads");
     },
     filename: function (req, file, callback) {
@@ -63,8 +64,8 @@ const uploader = multer({
 
 // UPLOADING A PICTURE //
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
-    console.log("RES.BODY: ", res.body);
-    console.log("req.body: ", req.body);
+    console.log("RES.BODY in index.js: ", res.body);
+    console.log("req.body in index.js: ", req.body);
     const { filename } = req.file;
     const item_url = `${s3Url}${filename}`;
 

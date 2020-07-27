@@ -1,30 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "./axios";
 
 export default function Generator() {
     const [random, setRandom] = useState(0);
+    const [tops, setTops] = useState([]);
+    const [randomtop, setRandomtop] = useState([]);
 
     const handleGenerator = (e) => {
         e.preventDefault();
         console.log("handleClick for generator runs!");
+
+        axios.get("/wardrobetops").then((result) => {
+            console.log("axios TOPS in generator.js result.data", result.data);
+            setTops(result.data);
+            console.log("tops:", tops);
+            let index = getRandomNumber(0, tops.length - 1);
+            console.log(index);
+
+            setRandomtop(tops[index].item_url);
+            // console.log("axios.get result.data: ", result.data.rows);
+        });
     };
 
-    // QUERIES TO GET ALL ITEMS FROM A CATEGORY:
-    // getTops, getBottoms, getShoes, getAccessories, getHats
-    // RANDOM NUMBER GEN FUNCTION
-    //
-    // const min = 0;
-    // const max = arr.length - 1;
+    useEffect(() => {
+        console.log("component mounted");
+    }, []);
 
-    let arr = [];
     function getRandomNumber(min, max) {
-        min = Math.ceil(0);
-        max = Math.ceil(arr.length);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-
-    /// ???
-    var items = [];
-    var item = items[Math.floor(Math.random() * items.length)];
 
     return (
         <div className="generator-container">
@@ -32,7 +36,7 @@ export default function Generator() {
             <button onClick={(e) => handleGenerator(e)}>GENERATE</button>
             <div className="outfit-container">
                 <div className="top-bottom-display">
-                    <img src="/defaultimg.jpg" alt="top"></img>
+                    <img src={randomtop} alt="top"></img>
                     <img src="/defaultimg.jpg" alt="bottom"></img>
                 </div>
                 <div className="extras-display">

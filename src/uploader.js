@@ -14,6 +14,7 @@ export default function Uploader(props) {
 
         var formData = new FormData();
         formData.append("file", props.file);
+        console.log("props.file appended to FormData: ", props.file);
         formData.append("category", props.categories);
 
         //const category = categories;
@@ -35,10 +36,10 @@ export default function Uploader(props) {
 
     const handleChange = (e) => {
         console.log(
-            "e.target.value in handleChange setFile is: ",
-            e.target.value
+            "e.target.FILES in handleChange setFile is: ",
+            e.target.files
         );
-        props.setFile(e.target.value);
+        props.setFile(e.target.files[0]);
     };
 
     const handleCategory = (e) => {
@@ -68,7 +69,6 @@ export default function Uploader(props) {
                 onChange={(e) => handleCategory(e)}
                 id="category"
                 name="category"
-                value="category"
             >
                 <option value="top">Top</option>
                 <option value="bottom">Bottom</option>
