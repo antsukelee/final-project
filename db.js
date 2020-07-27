@@ -38,11 +38,11 @@ module.exports.getShoes = () => {
 };
 module.exports.getAccessories = () => {
     return db.query(
-        `SELECT item_url, category, id FROM items WHERE category = 'accessory';`
+        `SELECT item_url, category, id FROM items WHERE category = 'accessories';`
     );
 };
 module.exports.getHats = () => {
     return db.query(
-        `SELECT item_url, category, id FROM items WHERE category = 'hat';`
+        `SELECT item_url, category, id FROM items WHERE category = 'hats';`
     );
 };

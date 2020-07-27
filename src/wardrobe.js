@@ -72,8 +72,8 @@ export default function Wardrobe({ imageFile }) {
                 {tops.length > 0 &&
                     tops.map((top) => {
                         return (
-                            <div>
-                                <li key={top.id}>
+                            <div key={top.id}>
+                                <li>
                                     <img
                                         className="wardrobe-item"
                                         src={top.item_url}
@@ -88,8 +88,8 @@ export default function Wardrobe({ imageFile }) {
                 {bottoms.length > 0 &&
                     bottoms.map((bottom) => {
                         return (
-                            <div>
-                                <li key={bottom.id}>
+                            <div key={bottom.id}>
+                                <li>
                                     <img
                                         className="wardrobe-item"
                                         src={bottom.item_url}
@@ -104,8 +104,8 @@ export default function Wardrobe({ imageFile }) {
                 {shoes.length > 0 &&
                     shoes.map((shoe) => {
                         return (
-                            <div>
-                                <li key={shoe.id}>
+                            <div key={shoe.id}>
+                                <li>
                                     <img
                                         className="wardrobe-item"
                                         src={shoe.item_url}
@@ -120,8 +120,8 @@ export default function Wardrobe({ imageFile }) {
                 {accessories.length > 0 &&
                     accessories.map((accessory) => {
                         return (
-                            <div>
-                                <li key={accessory.id}>
+                            <div key={accessory.id}>
+                                <li>
                                     <img
                                         className="wardrobe-item"
                                         src={accessory.item_url}
@@ -136,8 +136,8 @@ export default function Wardrobe({ imageFile }) {
                 {hats.length > 0 &&
                     hats.map((hat) => {
                         return (
-                            <div>
-                                <li key={hat.id}>
+                            <div key={hat.id}>
+                                <li>
                                     <img
                                         className="wardrobe-item"
                                         src={hat.item_url}

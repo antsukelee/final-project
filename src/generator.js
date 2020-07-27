@@ -6,25 +6,37 @@ export default function Generator() {
     const [tops, setTops] = useState([]);
     const [randomtop, setRandomtop] = useState([]);
 
-    const handleGenerator = (e) => {
-        e.preventDefault();
-        console.log("handleClick for generator runs!");
+    // const handleGenerator = (e) => {
+    //     e.preventDefault();
+    //     console.log("handleClick for generator runs!");
 
-        axios.get("/wardrobetops").then((result) => {
-            console.log("axios TOPS in generator.js result.data", result.data);
-            setTops(result.data);
-            console.log("tops:", tops);
-            let index = getRandomNumber(0, tops.length - 1);
-            console.log(index);
+    //     axios.get("/wardrobetops").then((result) => {
+    //         console.log("axios TOPS in generator.js result.data", result.data);
+    //         setTops(result.data);
+    //         console.log("tops:", tops);
+    //         let index = getRandomNumber(0, tops.length - 1);
+    //         console.log(index);
 
-            setRandomtop(tops[index].item_url);
-            // console.log("axios.get result.data: ", result.data.rows);
+    //         setRandomtop(tops[index].item_url);
+    //         // console.log("axios.get result.data: ", result.data.rows);
+    //     });
+    // };
+
+    // useEffect(() => {
+    //     console.log("component mounted");
+    // }, []);
+
+    function getData() {
+        return axios.get("/wardrobetops");
+    }
+
+    function handleGenerator() {
+        getData().then((result) => {
+            console.log(result);
+            let index = getRandomNumber(0, result.data.length - 1);
+            setRandomtop(result.data[index].item_url);
         });
-    };
-
-    useEffect(() => {
-        console.log("component mounted");
-    }, []);
+    }
 
     function getRandomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
