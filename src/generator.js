@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "./axios";
 
 export default function Generator() {
-    const [random, setRandom] = useState(0);
-    const [tops, setTops] = useState([]);
-    const [randomtop, setRandomtop] = useState([]);
-    const [randombottom, setRandombottom] = useState([]);
-    const [randomshoes, setRandomshoes] = useState([]);
-    const [randomaccessory, setRandomaccessory] = useState([]);
-    const [randomhat, setRandomhat] = useState([]);
+    // const [random, setRandom] = useState(0);
+    // const [tops, setTops] = useState([]);
+    const [randomtop, setRandomtop] = useState(0);
+    const [randombottom, setRandombottom] = useState(0);
+    const [randomshoes, setRandomshoes] = useState(0);
+    const [randomaccessory, setRandomaccessory] = useState(0);
+    const [randomhat, setRandomhat] = useState(0);
+    const [outfit, setOutfit] = useState(0);
 
     // const handleGenerator = (e) => {
     //     e.preventDefault();
@@ -36,39 +37,71 @@ export default function Generator() {
     // function getData() {
     //     return axios.get("/wardrobe");
     // }
-
+    /////////////////////////////////////////////
     function handleGenerator() {
-        // getData().then((result) => {
-        //     console.log(result);
-        //     let index = getRandomNumber(0, result.data.length - 1);
-        //     setRandomtop(result.data[index].item_url);
-        // });
-        axios.get("/wardrobetops").then((result) => {
-            console.log("result axios.get  /wardrobetops", result);
-            let index = getRandomNumber(0, result.data.length - 1);
-            setRandomtop(result.data[index].item_url);
-        });
-        axios.get("/wardrobebottoms").then((result) => {
-            console.log("result axios.get  /wardrobebottoms", result);
-            let index = getRandomNumber(0, result.data.length - 1);
-            setRandombottom(result.data[index].item_url);
-        });
-        axios.get("/wardrobeshoes").then((result) => {
-            console.log("result axios.get  /wardrobebottoms", result);
-            let index = getRandomNumber(0, result.data.length - 1);
-            setRandomshoes(result.data[index].item_url);
-        });
-        axios.get("/wardrobeaccessories").then((result) => {
-            console.log("result axios.get  /wardrobebottoms", result);
-            let index = getRandomNumber(0, result.data.length - 1);
-            setRandomaccessory(result.data[index].item_url);
-        });
-        axios.get("/wardrobehats").then((result) => {
-            console.log("result axios.get  /wardrobebottoms", result);
-            let index = getRandomNumber(0, result.data.length - 1);
-            setRandomhat(result.data[index].item_url);
+        axios.get("/wardrobe").then((result) => {
+            getRandomOutfit(result.data);
+            // console.log("RESULT OF AXIOSSSSS", result);
         });
     }
+
+    function getRandomOutfit(results) {
+        const categories = ["top", "bottom", "shoes", "accessories", "hats"];
+        const finalOutfit = [];
+        for (let i = 0; i < categories.length; i++) {
+            let items = results.filter((item) => {
+                return item.category === categories[i];
+            });
+            console.log("items", items);
+            let index = getRandomNumber(0, items.length - 1);
+            finalOutfit.push(items[index]);
+        }
+
+        console.log(finalOutfit);
+        setRandomtop(finalOutfit[0].item_url);
+        setRandombottom(finalOutfit[1].item_url);
+        setRandomshoes(finalOutfit[2].item_url);
+        setRandomaccessory(finalOutfit[3].item_url);
+        setRandomhat(finalOutfit[4].item_url);
+
+        // setOutfit(finalOutfit);
+        // console.log("finalOutfit: ", finalOutfit);
+    }
+
+    /////////////////////////////////////////////
+
+    // function handleGenerator() {
+    //     // getData().then((result) => {
+    //     //     console.log(result);
+    //     //     let index = getRandomNumber(0, result.data.length - 1);
+    //     //     setRandomtop(result.data[index].item_url);
+    //     // });
+    //     axios.get("/wardrobetops").then((result) => {
+    //         console.log("result axios.get  /wardrobetops", result);
+    //         let index = getRandomNumber(0, result.data.length - 1);
+    //         setRandomtop(result.data[index].item_url);
+    //     });
+    //     axios.get("/wardrobebottoms").then((result) => {
+    //         console.log("result axios.get  /wardrobebottoms", result);
+    //         let index = getRandomNumber(0, result.data.length - 1);
+    //         setRandombottom(result.data[index].item_url);
+    //     });
+    //     axios.get("/wardrobeshoes").then((result) => {
+    //         console.log("result axios.get  /wardrobebottoms", result);
+    //         let index = getRandomNumber(0, result.data.length - 1);
+    //         setRandomshoes(result.data[index].item_url);
+    //     });
+    //     axios.get("/wardrobeaccessories").then((result) => {
+    //         console.log("result axios.get  /wardrobebottoms", result);
+    //         let index = getRandomNumber(0, result.data.length - 1);
+    //         setRandomaccessory(result.data[index].item_url);
+    //     });
+    //     axios.get("/wardrobehats").then((result) => {
+    //         console.log("result axios.get  /wardrobebottoms", result);
+    //         let index = getRandomNumber(0, result.data.length - 1);
+    //         setRandomhat(result.data[index].item_url);
+    //     });
+    // }
 
     function getRandomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -80,6 +113,7 @@ export default function Generator() {
             <button onClick={(e) => handleGenerator(e)}>GENERATE</button>
             <div className="outfit-container">
                 <div className="top-bottom-display">
+                    {/* <img src={finalOutfit[0]}></img> */}
                     <img src={randomtop || "/defaultimg.jpg"} alt="top"></img>
                     <img
                         src={randombottom || "/defaultimg.jpg"}
@@ -87,15 +121,15 @@ export default function Generator() {
                     ></img>
                 </div>
                 <div className="extras-display">
-                    <img
-                        src={randomshoes || "/defaultimg.jpg"}
-                        alt="shoes"
-                    ></img>
+                    <img src={randomhat || "/defaultimg.jpg"} alt="hat"></img>
                     <img
                         src={randomaccessory || "/defaultimg.jpg"}
                         alt="accessory"
                     ></img>
-                    <img src={randomhat || "/defaultimg.jpg"} alt="hat"></img>
+                    <img
+                        src={randomshoes || "/defaultimg.jpg"}
+                        alt="shoes"
+                    ></img>
                 </div>
             </div>
         </div>
