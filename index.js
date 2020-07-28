@@ -140,6 +140,7 @@ app.post("/login", (req, res) => {
     let userId;
     checkLogin(req.body.email)
         .then((result) => {
+            console.log("result from post /login: ", result);
             userId = result.rows[0].id;
             // console.log("result from CHECK LOGIN: ", result);
             return compare(req.body.password, result.rows[0].password);

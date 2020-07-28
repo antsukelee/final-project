@@ -19,7 +19,7 @@
 /* HEADER */
 header {
     width: 100vw;
-    background-color: rgba(255, 188, 181, 0.527);
+    background: #ffd3d3;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,6 +30,27 @@ header h3 {
     /* font-family: Lustria; */
     font-weight: normal;
     font-size: 55px;
+    /* margin-bottom: 10px; */
+}
+
+header h4 {
+    margin-bottom: 20px;
+}
+
+.nav-links {
+    display: flex;
+    text-transform: uppercase;
+
+    width: 50%;
+    justify-content: space-evenly;
+}
+.nav-links-link {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.nav-links-link:hover {
+    color: rgba(0, 0, 0, 0.541);
 }
 
 /* UPLOADER COMPONENT*/
@@ -226,22 +247,85 @@ footer {
     padding-top: 15px;
 }
 
+footer a {
+    float: right;
+    margin-right: 30px;
+}
+
 /* LOG IN AND REG */
+.welcome-visual img {
+    position: absolute;
+    width: 65vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    object-fit: cover;
+    opacity: 0.6;
+
+    background: #f9f1f1;
+    z-index: -1;
+}
+
+/* .welcome-visual img {
+    width: 250px;
+    height: auto;
+    padding: 8px;
+} */
+
+.title-text-middle {
+    position: absolute;
+    color: #000000e3;
+    width: 281px;
+    height: 71px;
+    left: 73%;
+    top: 10vw;
+}
+
+.descriptive-welcome {
+    position: absolute;
+    width: 540px;
+    height: 126px;
+    left: 87px;
+    top: 108px;
+
+    font-family: Lustria;
+    font-style: sans-serif;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 50px;
+
+    color: #000000d5;
+
+    mix-blend-mode: normal;
+}
+
 .registration-form {
+    position: absolute;
+    width: 306px;
+    height: 313px;
+    left: 70%;
+    top: 192px;
     display: flex;
+    /* margin-top: 20%; */
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     height: 300px;
-    /* border: 1px solid black; */
 }
 
 .login-form {
+    position: absolute;
+    width: 306px;
+    height: 313px;
+    left: 70%;
+    top: 192px;
     display: flex;
+    /* margin-top: 20%; */
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     height: 250px;
+
     /* border: 1px solid black; */
 }
 
@@ -256,6 +340,7 @@ footer {
 .text-middle {
     text-align: center;
     padding-bottom: 20px;
+    margin-top: 10%;
 }
 
 .error {
@@ -271,4 +356,71 @@ footer {
 
 .link:hover {
     color: blue;
+}
+
+.welcome-img {
+    position: absolute;
+    width: 666px;
+    height: 421px;
+    left: 23px;
+    top: 154px;
+    opacity: 0.8;
+    z-index: 1;
+}
+.welcome-img2 {
+    position: absolute;
+    width: 267px;
+    height: 348px;
+    left: 356px;
+    top: 68px;
+    z-index: 1;
+}
+.welcome-img3 {
+    position: absolute;
+    width: 213px;
+    height: 288px;
+    left: 188px;
+    top: 361px;
+    border: 1px solid black;
+}
+.welcome-img4 {
+    position: absolute;
+    width: 213px;
+    height: 288px;
+    left: 188px;
+    top: 361px;
+    border: 1px solid black;
+}
+
+.welcome-img5 {
+    position: absolute;
+    width: 213px;
+    height: 288px;
+    left: 188px;
+    top: 361px;
+    border: 1px solid black;
+}
+.welcome-img6 {
+    position: absolute;
+    width: 213px;
+    height: 288px;
+    left: 188px;
+    top: 361px;
+    border: 1px solid black;
+}
+.welcome-img7 {
+    position: absolute;
+    width: 213px;
+    height: 288px;
+    left: 188px;
+    top: 361px;
+    border: 1px solid black;
+}
+.welcome-img8 {
+    position: absolute;
+    width: 213px;
+    height: 288px;
+    left: 188px;
+    top: 361px;
+    border: 1px solid black;
 }

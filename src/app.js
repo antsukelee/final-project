@@ -17,13 +17,17 @@ export default function App() {
                         Upload photos of your clothes and get outift combination
                         suggestions!
                     </h4>
-                    <Link to="/profile">Profile</Link>
-                    <Link to="/favourites">Favourites</Link>
-                    <Link to="/wardrobe">Wardrobe</Link>
-                    <a href="/logout" className="nav-link">
-                        {" "}
-                        Log out
-                    </a>
+                    <div className="nav-links">
+                        <Link className="nav-links-link" to="/profile">
+                            Profile
+                        </Link>
+                        <Link className="nav-links-link" to="/favourites">
+                            Favourites
+                        </Link>
+                        <Link className="nav-links-link" to="/wardrobe">
+                            Wardrobe
+                        </Link>
+                    </div>
                 </header>
                 <div className="app-layout">
                     <div className="left-nav">
@@ -40,7 +44,13 @@ export default function App() {
                         <Generator />
                     </div>
                 </div>
-                <footer>© 2020 Sandra Raav</footer>
+                <footer>
+                    © 2020 Sandra Raav
+                    <a href="/logout" className="nav-links-link">
+                        {" "}
+                        Log out
+                    </a>
+                </footer>
             </div>
         </BrowserRouter>
     );
