@@ -17,6 +17,13 @@ export default function App() {
                         Upload photos of your clothes and get outift combination
                         suggestions!
                     </h4>
+                    <Link to="/profile">Profile</Link>
+                    <Link to="/favourites">Favourites</Link>
+                    <Link to="/wardrobe">Wardrobe</Link>
+                    <a href="/logout" className="nav-link">
+                        {" "}
+                        Log out
+                    </a>
                 </header>
                 <div className="app-layout">
                     <div className="left-nav">

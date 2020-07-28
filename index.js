@@ -10,6 +10,7 @@ const {
     getAccessories,
     getHats,
     userRegistration,
+    checkLogin,
 } = require("./db.js");
 
 const s3 = require("./s3.js");
@@ -234,6 +235,12 @@ app.get("/wardrobehats", (req, res) => {
 // app.get("*", function (req, res) {
 //     res.sendFile(__dirname + "/index.html");
 // });
+
+app.get("/logout", (req, res) => {
+    req.session = null;
+    res.redirect("/");
+});
+
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");

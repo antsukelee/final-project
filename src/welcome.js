@@ -9,10 +9,7 @@ export default function Welcome() {
     return (
         <div>
             {/* <Logo /> */}
-            <h3 className="text-middle">
-                Welcome to the Social Network. To partake in all its fun
-                functions, sign up!
-            </h3>
+            <h3 className="text-middle">Sign up to use style genie</h3>
             <label>
                 <HashRouter>
                     <div>

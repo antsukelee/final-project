@@ -225,3 +225,50 @@ footer {
     text-align: center;
     padding-top: 15px;
 }
+
+/* LOG IN AND REG */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 300px;
+    /* border: 1px solid black; */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 250px;
+    /* border: 1px solid black; */
+}
+
+.field p {
+    font-size: smaller;
+}
+
+.field input {
+    padding: 5px;
+}
+
+.text-middle {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.error {
+    color: red;
+}
+
+/* LINKS */
+
+.link {
+    color: darkblue;
+    margin-top: 20px;
+}
+
+.link:hover {
+    color: blue;
+}
