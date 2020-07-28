@@ -5,6 +5,30 @@ const db = spicedPg(
         `postgres:Antsuke:postgres@localhost:5432/final-project`
 );
 
+///// REG AND LOG IN //////
+// INSERT QUERY registration details
+module.exports.userRegistration = (f_name, l_name, email, password) => {
+    // console.log("DB log of userRegistration F_NAME: ", f_name);
+    return db.query(
+        `INSERT INTO users (f_name, l_name, email, password) 
+        VALUES ($1, $2, $3, $4) 
+        RETURNING *`,
+        [f_name, l_name, email, password]
+    );
+};
+
+// LOGIN
+
+module.exports.checkLogin = (email) => {
+    // console.log("DB log of email: ", email);
+    return db.query(
+        `SELECT id, password
+        FROM users 
+        WHERE email = $1`,
+        [email]
+    );
+};
+
 // UPLOAD PICTURE // INSERT
 module.exports.uploadItem = (item_url, category) => {
     return db.query(
