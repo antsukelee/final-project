@@ -41,7 +41,9 @@ module.exports.uploadItem = (item_url, category) => {
 
 // TO RENDER PICTURES IN WARDROBE // SELECT
 module.exports.getWardrobeItems = () => {
-    return db.query(`SELECT item_url, category, id FROM items;`);
+    return db.query(
+        `SELECT item_url, category, id FROM items ORDER BY id DESC;`
+    );
 };
 
 // TO RENDER ONLY A CERTAIN CATEGORY'S ITEMS // SELECT

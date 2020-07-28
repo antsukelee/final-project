@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Uploader from "./uploader";
 import Wardrobe from "./wardrobe";
 import Generator from "./generator";
+import Cupboard from "./cupboard";
 
 import { Link, BrowserRouter, Route } from "react-router-dom";
 
@@ -18,6 +19,9 @@ export default function App() {
                         suggestions!
                     </h4>
                     <div className="nav-links">
+                        <Link className="nav-links-link" to="/">
+                            Generator
+                        </Link>
                         <Link className="nav-links-link" to="/profile">
                             Profile
                         </Link>
@@ -29,21 +33,33 @@ export default function App() {
                         </Link>
                     </div>
                 </header>
-                <div className="app-layout">
-                    <div className="left-nav">
-                        <Uploader
-                            setFile={setFile}
-                            file={file}
-                            categories={categories}
-                            setCategories={setCategories}
-                        />
 
-                        <Wardrobe imageFile={file} />
-                    </div>
-                    <div>
-                        <Generator />
-                    </div>
-                </div>
+                {/* trying */}
+                <Route
+                    exact
+                    path="/"
+                    render={() => (
+                        <div className="app-layout">
+                            <div className="left-nav">
+                                <Uploader
+                                    setFile={setFile}
+                                    file={file}
+                                    categories={categories}
+                                    setCategories={setCategories}
+                                />
+
+                                <Wardrobe imageFile={file} />
+                            </div>
+                            <div>
+                                <Generator />
+                            </div>
+                        </div>
+                    )}
+                />
+                <Route path="/wardrobe" component={Cupboard} />
+
+                {/* trying */}
+
                 <footer>
                     © 2020 Sandra Raav
                     <a href="/logout" className="nav-links-link">
