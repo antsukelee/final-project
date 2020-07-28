@@ -9,6 +9,7 @@ const {
     getShoes,
     getAccessories,
     getHats,
+    userRegistration,
 } = require("./db.js");
 
 const s3 = require("./s3.js");
@@ -225,13 +226,20 @@ app.get("/wardrobehats", (req, res) => {
 });
 
 // TO RENDER APP
-app.get("/app", (req, res) => {
-    //res.redirect("/app");
-    res.sendFile(__dirname + "/index.html");
-});
+// app.get("/app", (req, res) => {
+//     //res.redirect("/app");
+//     res.sendFile(__dirname + "/index.html");
+// });
 
+// app.get("*", function (req, res) {
+//     res.sendFile(__dirname + "/index.html");
+// });
 app.get("*", function (req, res) {
-    res.sendFile(__dirname + "/index.html");
+    if (!req.session.userId) {
+        res.redirect("/welcome");
+    } else {
+        res.sendFile(__dirname + "/index.html");
+    }
 });
 
 app.listen(8080, function () {
