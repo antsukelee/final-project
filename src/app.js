@@ -3,6 +3,7 @@ import Uploader from "./uploader";
 import Wardrobe from "./wardrobe";
 import Generator from "./generator";
 import Cupboard from "./cupboard";
+import About from "./about";
 
 import { Link, BrowserRouter, Route } from "react-router-dom";
 
@@ -13,7 +14,7 @@ export default function App() {
         <BrowserRouter>
             <div className="all">
                 <header>
-                    <h3>Style gen</h3>
+                    <h3>Style genie</h3>
                     <h4>
                         Upload photos of your clothes and get outift combination
                         suggestions!
@@ -22,14 +23,14 @@ export default function App() {
                         <Link className="nav-links-link" to="/">
                             Generator
                         </Link>
-                        <Link className="nav-links-link" to="/profile">
-                            Profile
-                        </Link>
                         <Link className="nav-links-link" to="/favourites">
                             Favourites
                         </Link>
                         <Link className="nav-links-link" to="/wardrobe">
                             Wardrobe
+                        </Link>
+                        <Link className="nav-links-link" to="/about">
+                            About
                         </Link>
                     </div>
                 </header>
@@ -57,6 +58,7 @@ export default function App() {
                     )}
                 />
                 <Route path="/wardrobe" component={Cupboard} />
+                <Route path="/about" component={About} />
 
                 {/* trying */}
 

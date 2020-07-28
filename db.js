@@ -72,3 +72,7 @@ module.exports.getHats = () => {
         `SELECT item_url, category, id FROM items WHERE category = 'hats';`
     );
 };
+
+module.exports.deleteItem = (id) => {
+    return db.query(`DELETE FROM items WHERE id=$1;`);
+};

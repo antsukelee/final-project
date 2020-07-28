@@ -11,8 +11,7 @@ export default function Cupboard({ imageFile }) {
     }, [imageFile]);
 
     return (
-        <div>
-            <p>All your items right here</p>
+        <div className="cupboard-container">
             <ul className="cupboard-items">
                 {allitems.length > 0 &&
                     allitems.map((pic) => {
