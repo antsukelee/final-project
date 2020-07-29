@@ -109,7 +109,7 @@ export default function Generator() {
 
     return (
         <div className="generator-container">
-            <p className="title">Generate an outfit for the day</p>
+            <p className="title">GENERATE AN OUTFIT FOR THE DAY</p>
             <button onClick={(e) => handleGenerator(e)}>GENERATE</button>
             <div className="outfit-container">
                 <div className="top-bottom-display">

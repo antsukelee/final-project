@@ -50,7 +50,7 @@ export default function Wardrobe({ imageFile }) {
 
     return (
         <div className="wardrobe-container">
-            <p className="nav-text">YOUR WARDROBE</p>
+            <p className="nav-text-title">YOUR WARDROBE</p>
             {/* <p>Tops</p>
             <ul className="wardrobe-items">
                 {pics.length > 0 &&

@@ -228,11 +228,11 @@ app.get("/wardrobehats", (req, res) => {
 });
 
 // TO DELETE AN ITEM
-app.post("delete", (req, res) => {
-    deleteItem().then((response) => {
-        res.json(response.rows);
-    });
-});
+// app.post("delete", (req, res) => {
+//     deleteItem().then((response) => {
+//         res.json(response.rows);
+//     });
+// });
 
 // TO RENDER APP
 // app.get("/app", (req, res) => {

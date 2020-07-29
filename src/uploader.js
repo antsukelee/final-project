@@ -52,7 +52,7 @@ export default function Uploader(props) {
 
     return (
         <div className="uploader-container">
-            <div className="nav-text">Upload photos</div>
+            <div className="nav-text-title">UPLOAD PHOTOS</div>
             <input
                 onChange={(e) => handleChange(e)}
                 type="file"

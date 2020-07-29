@@ -10,41 +10,6 @@ export default function Welcome() {
         <div>
             <div className="welcome-visual">
                 <img src="/backpic.jpg" alt="decorative image"></img>
-                {/*<img
-                    className="welcome-img2"
-                    src="/deco11.png"
-                    alt="decorative image"
-                ></img>
-                <img
-                    className="welcome-img3"
-                    src="/deco13.png"
-                    alt="decorative image"
-                ></img>
-                <img
-                    className="welcome-img4"
-                    src="/deco14.png"
-                    alt="decorative image"
-                ></img>
-                <img
-                    className="welcome-img5"
-                    src="/deco15.png"
-                    alt="decorative image"
-                ></img>
-                <img
-                    className="welcome-img6"
-                    src="/deco16.png"
-                    alt="decorative image"
-                ></img>
-                <img
-                    className="welcome-img7"
-                    src=""
-                    alt="decorative image"
-                ></img>
-                <img
-                    className="welcome-img8"
-                    src=""
-                    alt="decorative image"
-                ></img> */}
             </div>
             {/* <Logo /> */}
             <h2 className="descriptive-welcome">

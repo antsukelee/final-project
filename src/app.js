@@ -16,8 +16,8 @@ export default function App() {
                 <header>
                     <h3>Style genie</h3>
                     <h4>
-                        Upload photos of your clothes and get outift combination
-                        suggestions!
+                        Upload photos of your clothes and get creative outift
+                        combinations!
                     </h4>
                     <div className="nav-links">
                         <Link className="nav-links-link" to="/">

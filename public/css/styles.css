@@ -32,13 +32,15 @@ header h3 {
     /* font-family: Lustria; */
     font-weight: normal;
     font-size: 55px;
-    font-family: "Bangers", cursive;
+    font-family: "Abel", sans-serif;
     /* margin-bottom: 10px; */
 }
 
 header h4 {
-    font-family: "Amatic SC", cursive;
+    font-family: "Abel", sans-serif;
     margin-bottom: 20px;
+    background: #f8e1e1;
+    padding: 0 15px;
 }
 
 .nav-links {
@@ -102,14 +104,17 @@ header h4 {
 
 .nav-text-title {
     background-color: whitesmoke;
+    font-family: "Abel", sans-serif;
     padding: 5px;
     /* border-radius: 5px; */
     width: 100%;
     text-align: center;
-    font-size: larger;
+    font-size: 22px;
 }
 .nav-text {
     background-color: whitesmoke;
+    font-family: "Abel", sans-serif;
+    font-size: 20px;
     padding: 5px;
     /* border-radius: 5px; */
     width: 100%;
@@ -132,9 +137,10 @@ header h4 {
 }
 
 .generator-container .title {
-    font-size: 25px;
-    text-decoration: underline;
-    background-color: whitesmoke;
+    font-family: "Abel", sans-serif;
+    font-size: 28px;
+    /* text-decoration: underline; */
+    background-color: rgb(255, 255, 255);
     padding: 10px 30px;
     /* border-radius: 10px; */
 }
@@ -240,6 +246,8 @@ header h4 {
     width: auto;
 }
 .cupboard-item {
+    font-family: "Abel", sans-serif;
+    color: rgba(0, 0, 0, 0.726);
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -277,8 +285,8 @@ button:focus {
 
 /* FOOTER */
 footer {
-    background-color: rgba(0, 128, 128, 0.534);
-    color: rgba(0, 0, 0, 0.466);
+    background-color: rgba(82, 82, 82, 0.534);
+    color: rgba(255, 255, 255, 0.918);
     height: 40px;
     text-align: center;
     padding-top: 15px;
@@ -310,6 +318,8 @@ footer a {
 } */
 
 .title-text-middle {
+    font-family: "Abel", sans-serif;
+    font-size: 24px;
     position: absolute;
     color: #000000e3;
     width: 281px;
@@ -320,16 +330,16 @@ footer a {
 
 .descriptive-welcome {
     position: absolute;
-    width: 540px;
+    width: 600px;
     height: 126px;
     left: 87px;
     top: 108px;
 
-    font-family: Lustria;
-    font-style: sans-serif;
+    /* font-family: Lustria; */
+    font-family: "Abel", sans-serif;
     font-weight: normal;
-    font-size: 50px;
-    line-height: 50px;
+    font-size: 55px;
+    line-height: 60px;
 
     color: #000000d5;
 
@@ -386,12 +396,21 @@ footer a {
 
 /* ABOUT */
 .about-container {
-    height: 72vh;
+    height: 65vh;
     padding: 20px;
+}
+.about-container h3 {
+    font-family: "Abel", sans-serif;
+    font-size: 28px;
+    margin: 30px;
 }
 
 .about-container p {
+    margin: 20px 50px 10px 30px;
     margin-top: 10px;
+    font-family: "Abel", sans-serif;
+    font-size: 18px;
+    width: 70vw;
 }
 
 /* LINKS */
