@@ -3,6 +3,14 @@
 
 #### React.js, hooks, Javascript, CSS
 
+* Registration
+* Log in
+* Image upload
+* Designating a category
+* Randomised combination of items on button click
+* 'About' section
+* Log out
+
 After 11 weeks of non-stop learning and following the curriculum, it was time to create something of our own. 
 Naturally, already tired at the 12th week, yet still facsinated about how web dev works, I wanted my final project to be something fun.
 My previous experience being in the fashion industry, so what do I think of ?! - of course: a random outfit generator! 
