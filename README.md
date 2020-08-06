@@ -14,8 +14,7 @@ It provides ideas to be creative with your outfits, you might get ideas to combi
 The moment when I find it extremely useful, though, is when you're standing in front of your wardrobe in the morning, still sleepy, you don't really want to get dressed, but you kinda have to... then you hear your subconcious telling you 'you have *nothing* to wear'. 
 # Well, Style genie is here to help you out. 
 
-![Outfit generating](images/app.png)
-
+![generating](https://user-images.githubusercontent.com/52860802/89552346-4fe77f00-d80c-11ea-87c8-47b4903a072e.gif)
 
 #### Log in
 <img src="images/login.png" alt="log in page">
