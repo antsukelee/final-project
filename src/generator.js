@@ -68,6 +68,13 @@ export default function Generator() {
         // console.log("finalOutfit: ", finalOutfit);
     }
 
+    // SAVE OUTFIT FN
+    function handleSave() {
+        console.log("handleSave saving a fave outfit");
+        //     axios.post(
+        //         // post reqest to the db
+        //     )
+    }
     /////////////////////////////////////////////
 
     // function handleGenerator() {
@@ -111,6 +118,7 @@ export default function Generator() {
         <div className="generator-container">
             <p className="title">GENERATE AN OUTFIT FOR THE DAY</p>
             <button onClick={(e) => handleGenerator(e)}>GENERATE</button>
+            <button onClick={(e) => handleSave(e)}>SAVE OUTFIT</button>
             <div className="outfit-container">
                 <div className="top-bottom-display">
                     {/* <img src={finalOutfit[0]}></img> */}
