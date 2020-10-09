@@ -57,7 +57,11 @@ export default function Generator() {
             finalOutfit.push(items[index]);
         }
 
+<<<<<<< HEAD
         console.log("THIS IS THE ARRAY:", finalOutfit);
+=======
+        console.log(finalOutfit);
+>>>>>>> 1d28931fb3e5eede18fbc7f3ee6eb633c7910f02
         setRandomtop(finalOutfit[0].item_url);
         setRandombottom(finalOutfit[1].item_url);
         setRandomshoes(finalOutfit[2].item_url);
@@ -68,7 +72,18 @@ export default function Generator() {
         // console.log("finalOutfit: ", finalOutfit);
     }
 
+<<<<<<< HEAD
     ////////////////////////////////////////////////
+=======
+    // SAVE OUTFIT FN
+    function handleSave() {
+        console.log("handleSave saving a fave outfit");
+        //     axios.post(
+        //         // post reqest to the db
+        //     )
+    }
+    /////////////////////////////////////////////
+>>>>>>> 1d28931fb3e5eede18fbc7f3ee6eb633c7910f02
 
     // function handleGenerator() {
     //     // getData().then((result) => {
@@ -111,6 +126,10 @@ export default function Generator() {
         <div className="generator-container">
             <p className="title">GENERATE AN OUTFIT FOR THE DAY</p>
             <button onClick={(e) => handleGenerator(e)}>GENERATE</button>
+<<<<<<< HEAD
+=======
+            <button onClick={(e) => handleSave(e)}>SAVE OUTFIT</button>
+>>>>>>> 1d28931fb3e5eede18fbc7f3ee6eb633c7910f02
             <div className="outfit-container">
                 <div className="top-bottom-display">
                     {/* <img src={finalOutfit[0]}></img> */}
