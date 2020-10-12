@@ -394,6 +394,18 @@ footer a {
     color: red;
 }
 
+/* FAVOURITES */
+
+.favourites-container {
+    display: flex;
+}
+
+.favourites-card {
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+}
+
 /* ABOUT */
 .about-container {
     height: 65vh;

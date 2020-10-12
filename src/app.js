@@ -4,6 +4,7 @@ import Wardrobe from "./wardrobe";
 import Generator from "./generator";
 import Cupboard from "./cupboard";
 import About from "./about";
+import Favourites from "./favourites";
 
 import { Link, BrowserRouter, Route } from "react-router-dom";
 
@@ -59,6 +60,7 @@ export default function App() {
                 />
                 <Route path="/wardrobe" component={Cupboard} />
                 <Route path="/about" component={About} />
+                <Route path="/favourites" component={Favourites} />
 
                 {/* trying */}
 
