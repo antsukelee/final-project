@@ -11,6 +11,8 @@ export default function Generator() {
     const [randomhat, setRandomhat] = useState(0);
     const [outfit, setOutfit] = useState(0);
 
+    console.log("outfit OH JE", outfit);
+
     // const handleGenerator = (e) => {
     //     e.preventDefault();
     //     console.log("handleClick for generator runs!");
@@ -57,24 +59,40 @@ export default function Generator() {
             finalOutfit.push(items[index]);
         }
 
-        console.log("THIS IS THE ARRAY:", finalOutfit);
+        // console.log("THIS IS THE ARRAY:", finalOutfit);
         setRandomtop(finalOutfit[0].item_url);
         setRandombottom(finalOutfit[1].item_url);
         setRandomshoes(finalOutfit[2].item_url);
         setRandomaccessory(finalOutfit[3].item_url);
         setRandomhat(finalOutfit[4].item_url);
+        setOutfit(finalOutfit);
 
         // setOutfit(finalOutfit);
-        // console.log("finalOutfit: ", finalOutfit);
+        console.log("finalOutfit: ", finalOutfit);
     }
-
     // SAVE OUTFIT FN
-    function handleSave() {
-        console.log("handleSave saving a fave outfit");
+    function handleSaveFavourite(outfit) {
+        console.log("handleSaveFavourite saving a fave outfit:", outfit);
+        const outfitItems = [];
+        for (let i = 0; i < outfit.length; i++) {
+            outfitItems.push(outfit[i].item_url);
+        }
+        axios
+            .post("/favourite", outfitItems)
+            .then((response) => {
+                console.log("added fave outfit to the database", response);
+            })
+            .catch(function (err) {
+                console.log(
+                    "error in handleSaveFavourites generator.js: ",
+                    err
+                );
+            });
         //     axios.post(
         //         // post reqest to the db
         //     )
     }
+
     /////////////////////////////////////////////
 
     // function handleGenerator() {
@@ -118,7 +136,9 @@ export default function Generator() {
         <div className="generator-container">
             <p className="title">GENERATE AN OUTFIT FOR THE DAY</p>
             <button onClick={(e) => handleGenerator(e)}>GENERATE</button>
-            <button onClick={(e) => handleSave(e)}>SAVE OUTFIT</button>
+            <button onClick={(e) => handleSaveFavourite(outfit)}>
+                SAVE OUTFIT
+            </button>
             <div className="outfit-container">
                 <div className="top-bottom-display">
                     {/* <img src={finalOutfit[0]}></img> */}

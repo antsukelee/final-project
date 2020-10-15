@@ -11,6 +11,7 @@ const {
     getHats,
     userRegistration,
     checkLogin,
+    saveFavouriteOutfit,
 } = require("./db.js");
 
 const s3 = require("./s3.js");
@@ -187,6 +188,15 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
                 console.log("error in uploadItem index.js", err);
             });
     }
+});
+
+// TO SAVE A FAVOURITE OUTFIT //
+
+app.post("/favourite", (req, res) => {
+    console.log("req.body", req.body);
+    saveFavouriteOutfit(req.body).then((response) => {
+        console.log("response from app.post /favourite", response);
+    });
 });
 
 // TO RENDER WARDROBE ITEMS //

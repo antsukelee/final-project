@@ -76,3 +76,12 @@ module.exports.getHats = () => {
 module.exports.deleteItem = (id) => {
     return db.query(`DELETE FROM items WHERE id=$1;`);
 };
+
+// TO SAVE A FAVOURITE OUTFIT //
+
+module.exports.saveFavouriteOutfit = (array_of_item_urls) => {
+    return db.query(
+        `INSERT INTO favourites (array_of_item_urls) VALUES ($1) RETURNING *;`,
+        [array_of_item_urls]
+    );
+};
