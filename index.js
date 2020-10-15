@@ -12,6 +12,7 @@ const {
     userRegistration,
     checkLogin,
     saveFavouriteOutfit,
+    getFavouriteOutfits,
 } = require("./db.js");
 
 const s3 = require("./s3.js");
@@ -196,6 +197,15 @@ app.post("/favourite", (req, res) => {
     console.log("req.body", req.body);
     saveFavouriteOutfit(req.body).then((response) => {
         console.log("response from app.post /favourite", response);
+    });
+});
+
+// to RENDER FAVOURITE OUTFITS ON FAVOURITE PAGE
+
+app.get("/favourites", (req, res) => {
+    getFavouriteOutfits(req.body).then((response) => {
+        console.log("response from getFavouriteOutfits in index.js", response);
+        res.json(response.rows);
     });
 });
 

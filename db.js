@@ -85,3 +85,9 @@ module.exports.saveFavouriteOutfit = (array_of_item_urls) => {
         [array_of_item_urls]
     );
 };
+
+// TO GET SAVED FAVOURITE OUTFITS //
+
+module.exports.getFavouriteOutfits = () => {
+    return db.query(`SELECT * FROM favourites;`);
+};

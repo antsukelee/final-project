@@ -59,6 +59,11 @@ export default function App() {
                     )}
                 />
                 <Route path="/wardrobe" component={Cupboard} />
+                {/* <Route path="/wardrobe" render={() => (
+                    <div>
+                        <Cupboard ou ....
+                    </div>
+                )} /> */}
                 <Route path="/about" component={About} />
                 <Route path="/favourites" component={Favourites} />
 
