@@ -79,10 +79,10 @@ module.exports.deleteItem = (id) => {
 
 // TO SAVE A FAVOURITE OUTFIT //
 
-module.exports.saveFavouriteOutfit = (array_of_item_urls) => {
+module.exports.saveFavouriteOutfit = (top, bottom, shoes, hat, accessory) => {
     return db.query(
-        `INSERT INTO favourites (array_of_item_urls) VALUES ($1) RETURNING *;`,
-        [array_of_item_urls]
+        `INSERT INTO favourites (top, bottom, shoes, hat, accessory) VALUES ($1, $2, $3, $4, $5) RETURNING *;`,
+        [top, bottom, shoes, hat, accessory]
     );
 };
 

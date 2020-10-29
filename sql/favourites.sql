@@ -2,6 +2,10 @@ DROP TABLE IF EXISTS favourites;
 
 CREATE TABLE favourites (
     id SERIAL PRIMARY KEY,
-    array_of_item_urls TEXT,
+    top TEXT,
+    bottom TEXT,
+    shoes TEXT,
+    hat TEXT,
+    accessory TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

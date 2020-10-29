@@ -398,12 +398,24 @@ footer a {
 
 .favourites-container {
     display: flex;
+    flex-direction: row;
+    height: auto;
+    /* border: 1px solid black; */
+    list-style: none;
 }
 
 .favourites-card {
-    border: 1px solid black;
-    height: 200px;
-    width: 200px;
+    background-color: rgba(165, 119, 207, 0.164);
+    width: 230px;
+    height: 330px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+.favourites-card img {
+    height: 100px;
+    width: auto;
+    object-fit: cover;
 }
 
 /* ABOUT */
@@ -453,7 +465,7 @@ footer a {
     top: 68px;
     z-index: 1;
 }
-.welcome-img3 {
+/* .welcome-img3 {
     position: absolute;
     width: 213px;
     height: 288px;
@@ -501,4 +513,4 @@ footer a {
     left: 188px;
     top: 361px;
     border: 1px solid black;
-}
+} */

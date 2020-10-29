@@ -195,8 +195,18 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
 
 app.post("/favourite", (req, res) => {
     console.log("req.body", req.body);
-    saveFavouriteOutfit(req.body).then((response) => {
-        console.log("response from app.post /favourite", response);
+    const outfit = req.body;
+    saveFavouriteOutfit(
+        outfit[0].item_url,
+        outfit[1].item_url,
+        outfit[2].item_url,
+        outfit[3].item_url,
+        outfit[4].item_url
+    ).then((response) => {
+        console.log(
+            "saveFavouriteOutfit response from app.post /favourite",
+            response
+        );
     });
 });
 

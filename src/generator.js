@@ -9,37 +9,10 @@ export default function Generator() {
     const [randomshoes, setRandomshoes] = useState(0);
     const [randomaccessory, setRandomaccessory] = useState(0);
     const [randomhat, setRandomhat] = useState(0);
-    const [outfit, setOutfit] = useState(0);
+    const [outfit, setOutfit] = useState([]);
 
     console.log("outfit OH JE", outfit);
 
-    // const handleGenerator = (e) => {
-    //     e.preventDefault();
-    //     console.log("handleClick for generator runs!");
-
-    //     axios.get("/wardrobetops").then((result) => {
-    //         console.log("axios TOPS in generator.js result.data", result.data);
-    //         setTops(result.data);
-    //         console.log("tops:", tops);
-    //         let index = getRandomNumber(0, tops.length - 1);
-    //         console.log(index);
-
-    //         setRandomtop(tops[index].item_url);
-    //         // console.log("axios.get result.data: ", result.data.rows);
-    //     });
-    // };
-
-    // useEffect(() => {
-    //     console.log("component mounted");
-    // }, []);
-
-    // function getData() {
-    //     return axios.get("/wardrobetops");
-    // }
-    // function getData() {
-    //     return axios.get("/wardrobe");
-    // }
-    /////////////////////////////////////////////
     function handleGenerator() {
         axios.get("/wardrobe").then((result) => {
             getRandomOutfit(result.data);
@@ -72,13 +45,13 @@ export default function Generator() {
     }
     // SAVE OUTFIT FN
     function handleSaveFavourite(outfit) {
-        console.log("handleSaveFavourite saving a fave outfit:", outfit);
-        const outfitItems = [];
-        for (let i = 0; i < outfit.length; i++) {
-            outfitItems.push(outfit[i].item_url);
-        }
+        // console.log("handleSaveFavourite saving a fave outfit:", outfit);
+        // const outfitItems = [];
+        // for (let i = 0; i < outfit.length; i++) {
+        //     outfitItems.push(outfit[i].item_url);
+        // }
         axios
-            .post("/favourite", outfitItems)
+            .post("/favourite", outfit)
             .then((response) => {
                 console.log("added fave outfit to the database", response);
             })
@@ -88,44 +61,18 @@ export default function Generator() {
                     err
                 );
             });
-        //     axios.post(
-        //         // post reqest to the db
-        //     )
     }
-
-    /////////////////////////////////////////////
-
-    // function handleGenerator() {
-    //     // getData().then((result) => {
-    //     //     console.log(result);
-    //     //     let index = getRandomNumber(0, result.data.length - 1);
-    //     //     setRandomtop(result.data[index].item_url);
-    //     // });
-    //     axios.get("/wardrobetops").then((result) => {
-    //         console.log("result axios.get  /wardrobetops", result);
-    //         let index = getRandomNumber(0, result.data.length - 1);
-    //         setRandomtop(result.data[index].item_url);
-    //     });
-    //     axios.get("/wardrobebottoms").then((result) => {
-    //         console.log("result axios.get  /wardrobebottoms", result);
-    //         let index = getRandomNumber(0, result.data.length - 1);
-    //         setRandombottom(result.data[index].item_url);
-    //     });
-    //     axios.get("/wardrobeshoes").then((result) => {
-    //         console.log("result axios.get  /wardrobebottoms", result);
-    //         let index = getRandomNumber(0, result.data.length - 1);
-    //         setRandomshoes(result.data[index].item_url);
-    //     });
-    //     axios.get("/wardrobeaccessories").then((result) => {
-    //         console.log("result axios.get  /wardrobebottoms", result);
-    //         let index = getRandomNumber(0, result.data.length - 1);
-    //         setRandomaccessory(result.data[index].item_url);
-    //     });
-    //     axios.get("/wardrobehats").then((result) => {
-    //         console.log("result axios.get  /wardrobebottoms", result);
-    //         let index = getRandomNumber(0, result.data.length - 1);
-    //         setRandomhat(result.data[index].item_url);
-    //     });
+    //     axios
+    //         .post("/favourite", outfitItems)
+    //         .then((response) => {
+    //             console.log("added fave outfit to the database", response);
+    //         })
+    //         .catch(function (err) {
+    //             console.log(
+    //                 "error in handleSaveFavourites generator.js: ",
+    //                 err
+    //             );
+    //         });
     // }
 
     function getRandomNumber(min, max) {
@@ -163,3 +110,65 @@ export default function Generator() {
         </div>
     );
 }
+
+// const handleGenerator = (e) => {
+//     e.preventDefault();
+//     console.log("handleClick for generator runs!");
+
+//     axios.get("/wardrobetops").then((result) => {
+//         console.log("axios TOPS in generator.js result.data", result.data);
+//         setTops(result.data);
+//         console.log("tops:", tops);
+//         let index = getRandomNumber(0, tops.length - 1);
+//         console.log(index);
+
+//         setRandomtop(tops[index].item_url);
+//         // console.log("axios.get result.data: ", result.data.rows);
+//     });
+// };
+
+// useEffect(() => {
+//     console.log("component mounted");
+// }, []);
+
+// function getData() {
+//     return axios.get("/wardrobetops");
+// }
+// function getData() {
+//     return axios.get("/wardrobe");
+// }
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+
+// function handleGenerator() {
+//     // getData().then((result) => {
+//     //     console.log(result);
+//     //     let index = getRandomNumber(0, result.data.length - 1);
+//     //     setRandomtop(result.data[index].item_url);
+//     // });
+//     axios.get("/wardrobetops").then((result) => {
+//         console.log("result axios.get  /wardrobetops", result);
+//         let index = getRandomNumber(0, result.data.length - 1);
+//         setRandomtop(result.data[index].item_url);
+//     });
+//     axios.get("/wardrobebottoms").then((result) => {
+//         console.log("result axios.get  /wardrobebottoms", result);
+//         let index = getRandomNumber(0, result.data.length - 1);
+//         setRandombottom(result.data[index].item_url);
+//     });
+//     axios.get("/wardrobeshoes").then((result) => {
+//         console.log("result axios.get  /wardrobebottoms", result);
+//         let index = getRandomNumber(0, result.data.length - 1);
+//         setRandomshoes(result.data[index].item_url);
+//     });
+//     axios.get("/wardrobeaccessories").then((result) => {
+//         console.log("result axios.get  /wardrobebottoms", result);
+//         let index = getRandomNumber(0, result.data.length - 1);
+//         setRandomaccessory(result.data[index].item_url);
+//     });
+//     axios.get("/wardrobehats").then((result) => {
+//         console.log("result axios.get  /wardrobebottoms", result);
+//         let index = getRandomNumber(0, result.data.length - 1);
+//         setRandomhat(result.data[index].item_url);
+//     });
+// }
